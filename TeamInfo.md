@@ -12,7 +12,7 @@
 **Email**: nmreinig@ku.edu | nicholasreinig@gmail.com
 **Availability**: Monday, Wednesday, Friday: 10-5
                   Tuesday, Thursday: 11-1
-**Computing Platforms**: Linux, Windows, Supabase
+    **Computing Platforms**: Linux, Windows, Supabase
 **Programming Languages**: Python, Javascript, React
 
 - **Database Architect**  - 
