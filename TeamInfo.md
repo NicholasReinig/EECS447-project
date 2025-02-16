@@ -26,7 +26,7 @@
 
   **Email**: [Email]  
   **Availability**:  
-  - Monday, Wednesday, Friday: [Time]  
+  - Monday, Wednesday, Friday: [Time]  (you can change the format if you need to)  
   - Tuesday, Thursday: [Time]  
 
   **Computing Platforms**: [List platforms]  
@@ -40,7 +40,7 @@
 
   **Email**: [Email]  
   **Availability**:  
-  - Monday, Wednesday, Friday: [Time]  
+  - Monday, Wednesday, Friday: [Time]  (you can change the format if you need to)  
   - Tuesday, Thursday: [Time]  
 
   **Computing Platforms**: [List platforms]  
@@ -54,7 +54,7 @@
 
   **Email**: [Email]  
   **Availability**:  
-  - Monday, Wednesday, Friday: [Time]  
+  - Monday, Wednesday, Friday: [Time]  (you can change the format if you need to)  
   - Tuesday, Thursday: [Time]  
 
   **Computing Platforms**: [List platforms]  
@@ -68,7 +68,7 @@
 
   **Email**: [Email]  
   **Availability**:  
-  - Monday, Wednesday, Friday: [Time]  
+  - Monday, Wednesday, Friday: [Time]  (you can change the format if you need to)  
   - Tuesday, Thursday: [Time]  
 
   **Computing Platforms**: [List platforms]  
@@ -82,7 +82,7 @@
 
   **Email**: [Email]  
   **Availability**:  
-  - Monday, Wednesday, Friday: [Time]  
+  - Monday, Wednesday, Friday: [Time]  (you can change the format if you need to)  
   - Tuesday, Thursday: [Time]  
 
   **Computing Platforms**: [List platforms]  
