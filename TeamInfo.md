@@ -50,9 +50,9 @@
 
 ---
 
-- **Frontend Developer** - [Name]  
-  - Designs and develops the user interface for both staff and clients.  
-  - Ensures usability, responsiveness, and accessibility.  
+- **Meeting Coordinator** - [Name]  
+  - Schedules and plans team meetings. 
+  - Records notes from team meetings.
 
   **Email**: [Email]  
   **Availability**:  
