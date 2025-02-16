@@ -1,6 +1,8 @@
 # Team Organization and Profiles
 
-## Team Name: *Byte Builders*
+## Team Name: `SELECT * FROM Nerds`
+
+
 
 ---
 
