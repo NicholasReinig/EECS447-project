@@ -50,9 +50,9 @@
 
 ---
 
-- **Meeting Coordinator** - [Name]  
-  - Schedules and plans team meetings. 
-  - Records notes from team meetings.
+- **Frontend Developer** - [Name]  
+  - Create graphical interface for clients.
+  - Create graphical interface for library staff (tentative, may reduce to command line interface).
 
   **Email**: [Email]  
   **Availability**:  
