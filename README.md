@@ -1,5 +1,4 @@
 ﻿# EECS447-project
 
-See TeamInfo.md for Team Organization and Profiles  
-See Statements.md for Vision Statement and Scope Statement  
-See meeting logs folder for meeting logs
+Refer to our Wiki to see [Team Organization and Profiles](https://github.com/NicholasReinig/EECS447-project/wiki/Team-Organization-and-Profiles) 
+and [Project Meeting Logs](https://github.com/NicholasReinig/EECS447-project/wiki/Project-Meeting-Logs)
