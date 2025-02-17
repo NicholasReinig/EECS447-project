@@ -8,6 +8,9 @@
 
 **Team Members Present**: Andrew Ward, Dylan O'Brien, Ted Athon, Marcos Lepage, Divit Kannan, Nick Reinig
 
-**Tasks Allocated**: Fill in profiles before 11:59 2/16/2025
-
+**Tasks Allocated**: All members: Fill in profiles before 11:59 2/16/2025.
+                     Nick Reinig: Vision and Scope statements. Create and set up Github.
+                     
 **Task Completion Confirmation**: NA
+
+**Details**: Met over phone call to establish roles. Due to many members being busy we ended the call early, after establishing roles. Assigned 
