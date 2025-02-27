@@ -27,7 +27,22 @@ Specify the essential functions the database must perform. These functions can i
 List and describe the main data entities and their attributes and their data types or constraints. Note: these should represent major entities and their attributes (see the project description as the starting point); the list may be expanded upon when you develop the conceptual model.
 
 ### Non-Functional Requirements (_Optional_)
-Include performance metrics, security requirements, and any other constraints like compliance with regulations. You will not be expected to show that the non-functional properties hold. 
+Performance Requirements:
+  - Database quieries should take 5 seconds or less under normal load conditions.
+  - The system should support at least 50 users at a time under normal conditions without performance dips.
+Availability & Reliability:
+  - The system should be operational 23 hours a day (1 hour of downtime at the most)
+  - System should maintain data integrity even during a shutdown (power goes out, etc)
+  - Regular automated backups should be performed every month.
+Security:
+  - The system should be invulernable to SQL injection attacks (inputs should be sanatized)
+  - All passwords and other secure information will be stored using hashing algorithms, not as plaintext.
+  - Database connections should be encrypted.
+Scalability:
+  - Database should be scalable. We should be able to support more and more items and more and more members.
+Maintainability:
+  - Schema changes should be possible without taking the entire system down.
+  - System should include comprehensive logging.
 
 ## Hardware and Software Requirements
 Specify the hardware and software requirements for the database system. Note: your database is likely to be standalone (running on MariaDB on EECS servers), on MySQL on one of your laptops, or on the cloud. Clearly define the expected hardware and software components. While this may seem trivial, including these details demonstrates an understanding of the essential parts of a requirements document.
