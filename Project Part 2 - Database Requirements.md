@@ -30,16 +30,20 @@ List and describe the main data entities and their attributes and their data typ
 Performance Requirements:
   - Database quieries should take 5 seconds or less under normal load conditions.
   - The system should support at least 50 users at a time under normal conditions without performance dips.
+
 Availability & Reliability:
   - The system should be operational 23 hours a day (1 hour of downtime at the most)
   - System should maintain data integrity even during a shutdown (power goes out, etc)
   - Regular automated backups should be performed every month.
+
 Security:
   - The system should be invulernable to SQL injection attacks (inputs should be sanatized)
   - All passwords and other secure information will be stored using hashing algorithms, not as plaintext.
   - Database connections should be encrypted.
+
 Scalability:
   - Database should be scalable. We should be able to support more and more items and more and more members.
+
 Maintainability:
   - Schema changes should be possible without taking the entire system down.
   - System should include comprehensive logging.
