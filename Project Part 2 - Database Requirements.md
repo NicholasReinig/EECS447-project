@@ -38,26 +38,19 @@ The following are functional requirements of the database. Requirements may be a
 - If a user has multiple classifications associated, they will be given the most generous policy associated with any one of those roles.
 - If a user has been a part of the library for at least six months and returned at least six loans on time, they can be granted premium access by appointment with the staff. Staff are granted premium membership by default even if they do not meet the usual requirements.
 
-The following are queries that may be made of the database. These queries may be altered, removed, or appended throughout development.
-**Item information** : Gather all the information associated with an item from its attributes. Additionally return how many copies of the item is currently available.
+The following are queries that may be made of the database. These queries may be altered, removed, or appended throughout development.  
+**Item information** : Gather all the information associated with an item from its attributes. Additionally return how many copies of the item is currently available.  
+**Active loans** : A user should be able to see the relevant information for their active loans, such as due dates and the day the loan was made. If it is overdue they should be able to see their associated fine.  
+**User information** : A user should be able to view all the information about their membership.  
+**Common genres** : A user should be presented with media that is the same genre as they have taken on loan in the past.  
+**Whats hot** : A user should be presented with media that has been the most popular in the last month.    
+**"Readers like you"** : A complex query that should return to a user any media that they have never taken on loan, but has been frequently loaned out by users with similar interests. Other users with similar interests will be established by the users taking the same items on loan over time.  
+**Non-administrative users should never receive data about other users when they perform any of these queries**  
 
-**Active loans** : A user should be able to see the relevant information for their active loans, such as due dates and the day the loan was made. If it is overdue they should be able to see their associated fine.
-
-**User information** : A user should be able to view all the information about their membership.
-
-**Common genres** : A user should be presented with media that is the same genre as they have taken on loan in the past.
-
-**Whats hot** : A user should be presented with media that has been the most popular in the last month.
-
-**"Readers like you"** : A complex query that should return to a user any media that they have never taken on loan, but has been frequently loaned out by users with similar interests. Other users with similar interests will be established by the users taking the same items on loan over time.
-
-**Non-administrative users should never receive data about other users when they perform any of these queries**
-
-The following queries are ones that only adminstrative users like library staff should be able to make:
-**Detailed item information** : Will return all results associated with **Item information** with additional detailed information about any active loans on the item.
-**User lookup** : Will return the results of **User information** for a desired user.
-**Overdue loans** : Will return a list of currently overdue loans and the associated user and fine for each.
-
+The following queries are ones that only adminstrative users like library staff should be able to make:  
+**Detailed item information** : Will return all results associated with **Item information** with additional detailed information about any active loans on the item.  
+**User lookup** : Will return the results of **User information** for a desired user.  
+**Overdue loans** : Will return a list of currently overdue loans and the associated user and fine for each.  
 
 ### Data Entities
 The two main data entities will be items and users.
