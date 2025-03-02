@@ -130,7 +130,31 @@ Maintainability:
   - System should include comprehensive logging.
 
 ## Hardware and Software Requirements
-Specify the hardware and software requirements for the database system. Note: your database is likely to be standalone (running on MariaDB on EECS servers), on MySQL on one of your laptops, or on the cloud. Clearly define the expected hardware and software components. While this may seem trivial, including these details demonstrates an understanding of the essential parts of a requirements document.
+Specify the hardware and software requirements for the database system. Note: your database is likely to be standalone (running on MariaDB on EECS servers), on MySQL on one of your laptops, or on the cloud. Clearly define the expected hardware and software components. While this may seem trivial, including these details demonstrates an understanding of the essential parts of a requirements document.  
 
-## Appendices
-If there are other important contents that you would like to include, you are welcome to add them here.
+### Hardware 
+
+### Software
+
+- **Database Management System (DBMS)**:  
+  - MariaDB (hosted on EECS servers) or MySQL (local/cloud deployment)  
+  
+- **Development Tools**:  
+  - SQL Workbench / MySQL CLI (for querying and managing the database)  
+  - Visual Studio Code (for writing SQL queries)  
+  - Git / GitHub (for version control of SQL scripts and documentation)  
+
+- **Operating Systems**:  
+  - macOS, Linux, Windows (for development and testing)  
+
+- **Security and Data Integrity**:  
+  - Role-based access (admins can modify data, users can only retrieve it)  
+  - Enforce least privilege principle for database users  
+  - Prevent SQL injection through prepared statements  
+
+- **Scalability and Performance Optimization**:  
+  - Primary keys for fast lookups  
+  - Indexing frequenty queried columns (e.g., `id`, `author`, `genre`, etc.)  
+
+## Appendices  
+If there are other important contents that you would like to include, you are welcome to add them here.  
