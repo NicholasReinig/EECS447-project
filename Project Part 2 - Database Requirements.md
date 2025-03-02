@@ -134,6 +134,21 @@ Specify the hardware and software requirements for the database system. Note: yo
 
 ### Hardware 
 
+- **Server Requirements**:
+  - Processor.
+  - Memory (RAM): Minimum 16GB RAM.
+  - Standard Ethernet connection to support TCP/IP protocols.
+  - Uninterupted power supply (UPS) to ensure availability.
+ 
+- **Storage Requirements**:
+  - Primary storage (SSD/HDD) to  ensure fast read/write operations.
+  - Baclup storage on an external or cloud-based storage for automated backups.
+ 
+- **Backup Requirements**:
+  - Automated backup system with daily incremenetal backups.
+  - Secondary server to ensure minimal downtime in case of hardware failure.
+  - Archived backup stored securely in the cloud/off-site.
+
 ### Software
 
 - **Database Management System (DBMS)**:  
