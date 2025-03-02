@@ -23,15 +23,46 @@ Identify the database stakeholders, including end-users, administrators, and any
 ### Functional Requirements
 Specify the essential functions the database must perform. These functions can include user administration, data entry, retrieval, updates, deletions, and report generation. For report generation, refer to the sample queries/reports provided at the end of the project description for ideas. Additionally, as a team, brainstorm and propose other types of queries/reports that might be of interest to users. 
 
+The following are functional requirements of the database. Requirements may be altered, removed, or appended throughout development.
+- A user who wishes to check out a currently available item for loan will not be allowed to do so if they are at the maximum amount of held loans or have any items overdue. Otherwise the user should be allowed to take the item on loan.
+- A user may join a waitlist for a requested item if it is currently not available. Users must renew their position on the wait list every five days.
+- Digital media will still be limited on the number of people it can be loaned out to just like physical media. The library must track the number of copies it has available of all digital media.
+- Digital media will be automatically returned.
+- Users should be able to refine a search by the type of media, name, genre, and author (with the author referencing the director and publishing company of DVD's and magazines respectively). Users should also be able to refine their search to see only currently available items.
+- Users should be able to sort a search by the name of the media (alphabetically forwards or backwards) or the date added to the library database.
+- All library staff will also be granted access to the library as customers.
+- Administrative users will have the ability to edit the database by adding, removing, or editing items and users.
+- A record of loans will be kept. Administrative users will not be allowed to edit any of the records of loans.
+- Users may have any amount of additional classifications.
+- Different classifications of users may have different limits on the number of held items, loan durations, and fees for overdue media.
+- If a user has multiple classifications associated, they will be given the most generous policy associated with any one of those roles.
+- If a user has been a part of the library for at least six months and returned at least six loans on time, they can be granted premium access by appointment with the staff. Staff are granted premium membership by default even if they do not meet the usual requirements.
+
+The following are queries that may be made of the database. These queries may be altered, removed, or appended throughout development.
+**Item information** : Gather all the information associated with an item from its attributes. Additionally return how many copies of the item is currently available.
+**Active loans** : A user should be able to see the relevant information for their active loans, such as due dates and the day the loan was made. If it is overdue they should be able to see their associated fine.
+**User information** : A user should be able to view all the information about their membership.
+**Common genres** : A user should be presented with media that is the same genre as they have taken on loan in the past.
+**Whats hot** : A user should be presented with media that has been the most popular in the last month.
+**"Readers like you"** : A complex query that should return to a user any media that they have never taken on loan, but has been frequently loaned out by users with similar interests. Other users with similar interests will be established by the users taking the same items on loan over time.
+**Non-administrative users should never receive data about other users when they perform any of these queries**
+
+The following queries are ones that only adminstrative users like library staff should be able to make:
+**Detailed item information** : Will return all results associated with **Item information** with additional detailed information about any active loans on the item.
+**User lookup** : Will return the results of **User information** for a desired user.
+**Overdue loans** : Will return a list of currently overdue loans and the associated user and fine for each.
+
+
 ### Data Entities
-List and describe the main data entities and their attributes and their data types or constraints. Note: these should represent major entities and their attributes (see the project description as the starting point); the list may be expanded upon when you develop the conceptual model.
---
 The two main data entities will be items and users.
-### ITEMS
-Items will store all physical and non-physical media the library has. It will have the following values:
+
+#### ITEMS
+Items will store all physical and non-physical media the library has. It will have the following attributes:
 
 - **id** : `uuid` *Universally unique identifier assigned when added to the database*
+- **copies** : `integer` *The total number of copies the library has of an item, including those currently on loan*
 - **publisher** : `text` *The publisher of the media. This will refer to the primary production studio for DVDs*
+- **author** : `text` *The author's name, as it is listed by the book. In the case of DVD's it will be the primary director's name. In the case of magazines this field will be set to the same as the publisher field*
 - **acquired** : `timestamp` *The time that the media was added to the library database*
 - **link** : `text` *A link to the Wikipedia page of the media item*
 - **genre** : `text[]` *Will contain all applicable genres for a given media item. Possible genres are "Fiction", "Non-Fiction", "Science Fiction & Fantasy", "Mystery & Thriller", "Comedy", "Romance", "History & Biography", "Science & Technology", "Health & Wellness", "Arts & Culture", "Business & Finance"*
@@ -39,27 +70,36 @@ Items will store all physical and non-physical media the library has. It will ha
 
 **Additional attributes** will be defined according to `media_type`. Attributes will only be defined for an item if listed below; otherwise, they will be set to `NULL` for the item.
 
-#### **book**
-- **author** : `text` *The author's name, as it is listed by the book*
+##### **book**
 - **isbn** : `text` *International Standard Book Number*
 - **page_count** : `integer` *Total length in pages of the physical book*
 
-#### **ebook**
-- **author** : `text` *The author's name, as it is listed by the book*
+##### **ebook**
 - **isbn** : `text` *International Standard Book Number*
 - **word_count** : `integer` *Total length in words of the digital book*
 
-#### **audiobook**
-- **author** : `text` *The author's name, as it is listed by the book*
+##### **audiobook**
 - **isbn** : `text` *International Standard Book Number*
 - **narrator** : `text` *The narrator of the audiobook*
 
-#### **dvd**
-- **director** : `text` *The primary director of the movie or show*
+##### **dvd**
 - **runtime** : `float` *The total runtime of the DVD in hours*
 - **rating** : `text` *The Motion Picture Association of America's rating for movies or the TV Parental Guideline rating for shows*
-    
-  ### USERS
+
+##### **magazine**  
+- **issue_number** : `text` *Issue identifier for the magazine*  
+- **publication_date** : `date` *Date the issue was published*  
+
+### USERS
+Users will contain the members of the library, both staff and customers. It will have the following attributes:
+
+- **id** : `uuid` *Universally unique identifier assigned when added to the database*
+- **joined** : `timestamp` *The time that the user was added to the library database*
+- **is_administrator** : boolean *True if the user has administrative access to the database*
+- **is_student** : boolean *True if the user is a student at any of the community's schools*
+- **is_senior** : boolean *True if the user is 65 years old or older*
+- **is_premium** : boolean *True if the user is granted premium membership by the library*
+
 
 ### Non-Functional Requirements (_Optional_)
 Performance Requirements:
