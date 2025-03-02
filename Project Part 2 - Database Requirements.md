@@ -47,7 +47,7 @@ The following are queries that may be made of the database. These queries may be
 **"Readers like you"** : A complex query that should return to a user any media that they have never taken on loan, but has been frequently loaned out by users with similar interests. Other users with similar interests will be established by the users taking the same items on loan over time.  
 **Non-administrative users should never receive data about other users when they perform any of these queries**  
 
-The following queries are ones that only adminstrative users like library staff should be able to make:  
+The following queries are ones that only administrative users like library staff should be able to make:  
 **Detailed item information** : Will return all results associated with **Item information** with additional detailed information about any active loans on the item.  
 **User lookup** : Will return the results of **User information** for a desired user.  
 **Overdue loans** : Will return a list of currently overdue loans and the associated user and fine for each.  
@@ -94,10 +94,10 @@ Users will contain the members of the library, both staff and customers. It will
 
 - **id** : `uuid` *Universally unique identifier assigned when added to the database*
 - **joined** : `timestamp` *The time that the user was added to the library database*
-- **is_administrator** : boolean *True if the user has administrative access to the database*
-- **is_student** : boolean *True if the user is a student at any of the community's schools*
-- **is_senior** : boolean *True if the user is 65 years old or older*
-- **is_premium** : boolean *True if the user is granted premium membership by the library*
+- **is_administrator** : `boolean` *True if the user has administrative access to the database*
+- **is_student** : `boolean` *True if the user is a student at any of the community's schools*
+- **is_senior** : `boolean` *True if the user is 65 years old or older*
+- **is_premium** : `boolean` *True if the user is granted premium membership by the library*
 
 
 ### Non-Functional Requirements (_Optional_)
