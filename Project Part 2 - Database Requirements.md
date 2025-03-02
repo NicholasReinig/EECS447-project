@@ -7,13 +7,20 @@ Document the requirements of your database project. No formal template is requir
 ## Introduction 
 
 ### Project Overview
-Briefly describe the purpose of the database and its intended use. 
+The purpose of this project is to enhance the operations of a small library by facilitating the management of a collection of loanable items. This includes storing item, membership, and transaction information as well as enforcing various policies automatically. The system is intended to be used to manage the everyday operations of a library, either through automated interactions or through dedicated queries by a system administrator.
 
 ### Scope
-Define the boundaries of the project, including what will and will not be covered (this could be a one paragraph shortened version from Project Part 1, repeated to maintain continuity). The previous two subsections establish continuity. 
+The Library Management System will cover a wide range of responsibilities. It will include functionality pertaining to item management, i.e., storing book, digital media, and magazine identifiers alongside their attributes as well as tracking their availability status. To enable the ability to borrow the library's items, the system will keep client records (complete with membership categories), and enforce borrowing constraints. The system will perform transaction management by recording all borrowing, returning, and reservation transactions, tracking overdue items (and their corresponding fees), and implementing an item reservation system. Moreover, the system will have support for providing notifications to both clients (in the form of notices), and system administrators (in the form of reports). Finally, performance and security are also within the scope of the project. Outside of the boundaries of the project are components such as the user interface. Indeed, this project will focus primarily on the database implementation and not the front end.
 
 ### Glossary
-Include a glossary of terms or acronyms (if any) used in the document.
+- DB: Database
+- DBMS: Database Management System
+- DVD: Digital Versatile Disc
+- EECS: Electrical Engineering and Computer Science (department)
+- ID: Identifier
+- ISBN: International Standard Book Number
+- SQL: Structured Query Language
+- UUID: Universally Unique Identifier
 
 ## Stakeholders
 Identify the database stakeholders, including end-users, administrators, and any other relevant parties. While some of these may need to be contrived, doing so demonstrates an understanding of the essential components of a requirements document.
