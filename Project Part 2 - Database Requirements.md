@@ -28,30 +28,36 @@ List and describe the main data entities and their attributes and their data typ
 --
 The two main data entities will be items and users.
 ### ITEMS
-    Items will store all physical and non-physical media the library has. It will have the following values
-    - id : uuid *universally unique identifier assigned when added to database*
-    - publisher : text *The publisher of the media. This will refer to the primary production studio for DVD's*
-    - acquired : timestamp *This will be the time that the media was added to the library database*
-    - link : text *A link to the wikipedia page of the media item*
-    - genre : text[] *Will contain all applicable genres for a given media item. Possible genres are "Fiction", "Non-Fiction", "Science Fiction & Fantasy", "Mystery & Thriller", "Comedy", "Romance", "History & Biography", "Science & Technology", "Health & Wellness", "Arts & Culture", "Business & Finance"*
-    - media_type : text *Value must be one of the following: "book", "ebook", "audiobook", "dvd", "magazine". Based on the value of media_type additional attributes must be given values or set to null accordingly*
-    Additional attributes below will be defined according to the media_type. Attributes will only be defined for an item if listed below, and will otherwise be set to null for the item.
-    **book**
-    author : text *The authors name, as it is listed by the book*
-    isbn : text *International Standard Book Number*
-    page_count : integer *Total length in pages of the physical book*
-    **ebook**
-    author : text *The authors name, as it is listed by the book*
-    isbn : text *International Standard Book Number*
-    word_count : integer *Total length in words of the digital book*
-    **audiobook**
-    author : text *The authors name, as it is listed by the book*
-    isbn : text "International Standard Book Number*
-    narrator : text "The narrator of the audiobook"
-    **dvd**
-    director : text *The primary director of the movie or show*
-    runtime : float *The length of the total run time of the dvd in hours*
-    rating : text *The Motion Picture Association of America's rating in the case of movies or the TV Parental Guideline rating in the case of shows*
+Items will store all physical and non-physical media the library has. It will have the following values:
+
+- **id** : `uuid` *Universally unique identifier assigned when added to the database*
+- **publisher** : `text` *The publisher of the media. This will refer to the primary production studio for DVDs*
+- **acquired** : `timestamp` *The time that the media was added to the library database*
+- **link** : `text` *A link to the Wikipedia page of the media item*
+- **genre** : `text[]` *Will contain all applicable genres for a given media item. Possible genres are "Fiction", "Non-Fiction", "Science Fiction & Fantasy", "Mystery & Thriller", "Comedy", "Romance", "History & Biography", "Science & Technology", "Health & Wellness", "Arts & Culture", "Business & Finance"*
+- **media_type** : `text` *Value must be one of the following: "book", "ebook", "audiobook", "dvd", "magazine". Based on the value of media_type, additional attributes must be given values or set to null accordingly.*
+
+**Additional attributes** will be defined according to `media_type`. Attributes will only be defined for an item if listed below; otherwise, they will be set to `NULL` for the item.
+
+#### **book**
+- **author** : `text` *The author's name, as it is listed by the book*
+- **isbn** : `text` *International Standard Book Number*
+- **page_count** : `integer` *Total length in pages of the physical book*
+
+#### **ebook**
+- **author** : `text` *The author's name, as it is listed by the book*
+- **isbn** : `text` *International Standard Book Number*
+- **word_count** : `integer` *Total length in words of the digital book*
+
+#### **audiobook**
+- **author** : `text` *The author's name, as it is listed by the book*
+- **isbn** : `text` *International Standard Book Number*
+- **narrator** : `text` *The narrator of the audiobook*
+
+#### **dvd**
+- **director** : `text` *The primary director of the movie or show*
+- **runtime** : `float` *The total runtime of the DVD in hours*
+- **rating** : `text` *The Motion Picture Association of America's rating for movies or the TV Parental Guideline rating for shows*
     
   ### USERS
 
