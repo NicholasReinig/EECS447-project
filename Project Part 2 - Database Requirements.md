@@ -27,7 +27,7 @@ Specify the essential functions the database must perform. These functions can i
 List and describe the main data entities and their attributes and their data types or constraints. Note: these should represent major entities and their attributes (see the project description as the starting point); the list may be expanded upon when you develop the conceptual model.
 --
 The two main data entities will be items and users.
-  ### ITEMS
+### ITEMS
     Items will store all physical and non-physical media the library has. It will have the following values
     - id : uuid *universally unique identifier assigned when added to database*
     - publisher : text *The publisher of the media. This will refer to the primary production studio for DVD's*
