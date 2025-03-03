@@ -23,7 +23,33 @@ The Library Management System will cover a wide range of responsibilities. It wi
 - UUID: Universally Unique Identifier
 
 ## Stakeholders
-Identify the database stakeholders, including end-users, administrators, and any other relevant parties. While some of these may need to be contrived, doing so demonstrates an understanding of the essential components of a requirements document.
+Library Members(Clients)
+Job: These are end users that are given the ability to borrow and return items, reserve books and manage their own accounts.
+Requirements:
+-Ability to access due dates, fines, past borrowing transactions and loans.
+-Can look through catalog based on author, title, genre or by type of item.
+-Ability to put a hold on a currently unavailable book.
+-Secure login standards.
+-Notification structure implemented for due dates, overdue books and available reservations.
+
+Library Staff
+Job: Assist in the functioning of the entire library and attend to the needs of clients.
+Requirements:
+-Management of client accounts.
+-Ability to add, remove and update book and media records.
+-Ability to engage in loan transactions.
+-Full access to waitlists and reservations.
+-Creates reports on overdue items and collection stats.
+
+Library Administrators
+Job: Oversee functioning of the entire library and monitor database integrity.
+Requirements:
+-Supervise staff accounts and assign roles/tasks.
+-Ability to create in depth reports on revenue from fines, book distribution and member involvement.
+-Ability to change late fees and loan restrictions.
+-Manage system backups and operations.
+-Guarantee user security.
+
 
 ## Requirements
 
