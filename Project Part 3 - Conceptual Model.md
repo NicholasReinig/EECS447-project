@@ -60,3 +60,6 @@ Users will take out loans on media items. It will have the following attributes
 - **date_received** : `timestamp` *The time that the user received the loan. Will be null while the user is on the waiting list*
 - **date_due** : `timestamp` *The date that the loan is due. Will be null until the user returns the book*
 - **date_returned** : `timestamp` *The date that the loan was returned*
+
+  <img width="632" alt="image" src="https://github.com/user-attachments/assets/9daf5d63-e2fc-4f6e-ab27-796495775e50" />
+
