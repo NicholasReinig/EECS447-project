@@ -5,7 +5,6 @@ The purpose of this project is to enhance the operations of a small library by f
 The Library Management System will cover a wide range of responsibilities. It will include functionality pertaining to item management, i.e., storing book, digital media, and magazine identifiers alongside their attributes as well as tracking their availability status. To enable the ability to borrow the library's items, the system will keep client records (complete with membership categories), and enforce borrowing constraints. The system will perform transaction management by recording all borrowing, returning, and reservation transactions, tracking overdue items (and their corresponding fees), and implementing an item reservation system. Moreover, the system will have support for providing notifications to both clients (in the form of notices), and system administrators (in the form of reports). Finally, performance and security are also within the scope of the project. Outside of the boundaries of the project are components such as the user interface. Indeed, this project will focus primarily on the database implementation and not the front end.
 
 ### Data Entities
-The two main data entities will be items and users.
 
 #### ITEMS
 Items will store all physical and non-physical media the library has. It will have the following attributes:
@@ -50,3 +49,14 @@ Users will contain the members of the library, both staff and customers. It will
 - **is_student** : `boolean` *True if the user is a student at any of the community's schools*
 - **is_senior** : `boolean` *True if the user is 65 years old or older*
 - **is_premium** : `boolean` *True if the user is granted premium membership by the library*
+
+### LOANS
+Users will take out loans on media items. It will have the following attributes
+
+- **id** : `uuid` *Universally unique identifier assigned when added to the database*
+- **user_id** : `uuid` *ID of the user performing the borrow*
+- **item_id** : `uuid` *ID of the item to be borrowed*
+- **date_made** : `timestamp` *The time that the user requested the loan*
+- **date_received** : `timestamp` *The time that the user received the loan. Will be null while the user is on the waiting list*
+- **date_due** : `timestamp` *The date that the loan is due. Will be null until the user returns the book*
+- **date_returned** : `timestamp` *The date that the loan was returned*
