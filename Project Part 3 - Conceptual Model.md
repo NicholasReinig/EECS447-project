@@ -40,7 +40,7 @@ Items will store all physical and non-physical media the library has. It will ha
 - **issue_number** : `text` *Issue identifier for the magazine*  
 - **publication_date** : `date` *Date the issue was published*  
 
-### USERS
+#### USERS
 Users will contain the members of the library, both staff and customers. It will have the following attributes:
 
 - **id** : `uuid` *Universally unique identifier assigned when added to the database*
@@ -50,7 +50,7 @@ Users will contain the members of the library, both staff and customers. It will
 - **is_senior** : `boolean` *True if the user is 65 years old or older*
 - **is_premium** : `boolean` *True if the user is granted premium membership by the library*
 
-### LOANS
+#### LOANS
 Users will take out loans on media items. It will have the following attributes
 
 - **id** : `uuid` *Universally unique identifier assigned when added to the database*
@@ -61,5 +61,6 @@ Users will take out loans on media items. It will have the following attributes
 - **date_due** : `timestamp` *The date that the loan is due. Will be null until the user returns the book*
 - **date_returned** : `timestamp` *The date that the loan was returned*
 
+### ER Model
   <img width="632" alt="image" src="https://github.com/user-attachments/assets/9daf5d63-e2fc-4f6e-ab27-796495775e50" />
 
