@@ -3,3 +3,50 @@ The purpose of this project is to enhance the operations of a small library by f
 
 ### Scope
 The Library Management System will cover a wide range of responsibilities. It will include functionality pertaining to item management, i.e., storing book, digital media, and magazine identifiers alongside their attributes as well as tracking their availability status. To enable the ability to borrow the library's items, the system will keep client records (complete with membership categories), and enforce borrowing constraints. The system will perform transaction management by recording all borrowing, returning, and reservation transactions, tracking overdue items (and their corresponding fees), and implementing an item reservation system. Moreover, the system will have support for providing notifications to both clients (in the form of notices), and system administrators (in the form of reports). Finally, performance and security are also within the scope of the project. Outside of the boundaries of the project are components such as the user interface. Indeed, this project will focus primarily on the database implementation and not the front end.
+
+### Data Entities
+The two main data entities will be items and users.
+
+#### ITEMS
+Items will store all physical and non-physical media the library has. It will have the following attributes:
+
+- **id** : `uuid` *Universally unique identifier assigned when added to the database*
+- **copies** : `integer` *The total number of copies the library has of an item, including those currently on loan*
+- **publisher** : `text` *The publisher of the media. This will refer to the primary production studio for DVDs*
+- **author** : `text` *The author's name, as it is listed by the book. In the case of DVD's it will be the primary director's name. In the case of magazines this field will be set to the same as the publisher field*
+- **acquired** : `timestamp` *The time that the media was added to the library database*
+- **link** : `text` *A link to the Wikipedia page of the media item*
+- **genre** : `text[]` *Will contain all applicable genres for a given media item. Possible genres are "Fiction", "Non-Fiction", "Science Fiction & Fantasy", "Mystery & Thriller", "Comedy", "Romance", "History & Biography", "Science & Technology", "Health & Wellness", "Arts & Culture", "Business & Finance"*
+- **media_type** : `text` *Value must be one of the following: "book", "ebook", "audiobook", "dvd", "magazine". Based on the value of media_type, additional attributes must be given values or set to null accordingly.*
+
+**Additional attributes** will be defined according to `media_type`. Attributes will only be defined for an item if listed below; otherwise, they will be set to `NULL` for the item.
+
+##### **book**
+- **isbn** : `text` *International Standard Book Number*
+- **page_count** : `integer` *Total length in pages of the physical book*
+
+##### **ebook**
+- **isbn** : `text` *International Standard Book Number*
+- **word_count** : `integer` *Total length in words of the digital book*
+
+##### **audiobook**
+- **isbn** : `text` *International Standard Book Number*
+- **narrator** : `text` *The narrator of the audiobook*
+
+##### **dvd**
+- **runtime** : `float` *The total runtime of the DVD in hours*
+- **rating** : `text` *The Motion Picture Association of America's rating for movies or the TV Parental Guideline rating for shows*
+
+##### **magazine**  
+- **issue_number** : `text` *Issue identifier for the magazine*  
+- **publication_date** : `date` *Date the issue was published*  
+
+### USERS
+Users will contain the members of the library, both staff and customers. It will have the following attributes:
+
+- **id** : `uuid` *Universally unique identifier assigned when added to the database*
+- **joined** : `timestamp` *The time that the user was added to the library database*
+- **is_administrator** : `boolean` *True if the user has administrative access to the database*
+- **is_student** : `boolean` *True if the user is a student at any of the community's schools*
+- **is_senior** : `boolean` *True if the user is 65 years old or older*
+- **is_premium** : `boolean` *True if the user is granted premium membership by the library*
