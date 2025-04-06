@@ -1,0 +1,2 @@
+### Project Overview
+The purpose of this project is to enhance the operations of a small library by facilitating the management of a collection of loanable items. This includes storing item, membership, and transaction information as well as enforcing various policies automatically. The system is intended to be used to manage the everyday operations of a library, either through automated interactions or through dedicated queries by a system administrator.
