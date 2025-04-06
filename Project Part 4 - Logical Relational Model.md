@@ -4,7 +4,9 @@ The purpose of this project is to enhance the operations of a small library by f
 
 ### Relational Schema Mapping
 <img width="613" alt="image" src="https://github.com/user-attachments/assets/d1029776-5164-4673-b788-9f81712699c3" />
+
 ### Notes:
+
 #### ITEMS
 Items will store all physical and non-physical media the library has. It will have the following attributes:
 
