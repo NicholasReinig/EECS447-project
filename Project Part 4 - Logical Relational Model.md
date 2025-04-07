@@ -13,7 +13,7 @@ The Library Management System will cover a wide range of responsibilities. It wi
 ### Relational Schema Mapping
 <img width="613" alt="image" src="https://github.com/user-attachments/assets/d1029776-5164-4673-b788-9f81712699c3" />
 
-### Notes:
+**In cases where a domain is not specified, the domain is all possible values of the type**
 
 #### ITEMS
 Items will store all physical and non-physical media the library has. It will have the following attributes:
