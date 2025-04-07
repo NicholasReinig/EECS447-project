@@ -16,7 +16,7 @@ Items will store all physical and non-physical media the library has. It will ha
 - **author** : `text` *The author's name, as it is listed by the book. In the case of DVD's it will be the primary director's name. In the case of magazines this field will be set to the same as the publisher field*
 - **acquired** : `timestamp` *The time that the media was added to the library database*
 - **link** : `text` *A link to the Wikipedia page of the media item*
-- **genre** : `text[]` *Will contain all applicable genres for a given media item. **Domain** = all possible combinations of {"Fiction", "Non-Fiction", "Science Fiction & Fantasy", "Mystery & Thriller", "Comedy", "Romance", "History & Biography", "Science & Technology", "Health & Wellness", "Arts & Culture", "Business & Finance"}*
+- **genre** : `text[]` ***Domain** = all possible combinations of {"Fiction", "Non-Fiction", "Science Fiction & Fantasy", "Mystery & Thriller", "Comedy", "Romance", "History & Biography", "Science & Technology", "Health & Wellness", "Arts & Culture", "Business & Finance"}. Will contain all applicable genres for a given media item. *
 - **media_type** : `text` ***Domain** = {"book", "ebook", "audiobook", "dvd", "magazine"}. Based on the value of media_type, additional attributes must be given values or set to null accordingly.*
 
 **Additional attributes** will be defined according to `media_type`. Attributes will only be defined for an item if listed below; otherwise, they will be set to `NULL` for the item.
