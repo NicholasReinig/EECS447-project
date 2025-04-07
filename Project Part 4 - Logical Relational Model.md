@@ -1,6 +1,14 @@
 ### Project Overview
 The purpose of this project is to enhance the operations of a small library by facilitating the management of a collection of loanable items. This includes storing item, membership, and transaction information as well as enforcing various policies automatically. The system is intended to be used to manage the everyday operations of a library, either through automated interactions or through dedicated queries by a system administrator.
 
+### Scope
+The Library Management System will cover a wide range of responsibilities. It will include functionality pertaining to item management, i.e., storing book, digital media, and magazine identifiers alongside their attributes as well as tracking their availability status. To enable the ability to borrow the library's items, the system will keep client records (complete with membership categories), and enforce borrowing constraints. The system will perform transaction management by recording all borrowing, returning, and reservation transactions, tracking overdue items (and their corresponding fees), and implementing an item reservation system. Moreover, the system will have support for providing notifications to both clients (in the form of notices), and system administrators (in the form of reports). Finally, performance and security are also within the scope of the project. Outside of the boundaries of the project are components such as the user interface. Indeed, this project will focus primarily on the database implementation and not the front end.
+
+### Glossary
+- DVD: Digital Versatile Disc
+- ID: Identifier
+- ISBN: International Standard Book Number
+- UUID: Universally Unique Identifier
 
 ### Relational Schema Mapping
 <img width="613" alt="image" src="https://github.com/user-attachments/assets/d1029776-5164-4673-b788-9f81712699c3" />
