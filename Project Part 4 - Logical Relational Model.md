@@ -10,14 +10,14 @@ The purpose of this project is to enhance the operations of a small library by f
 #### ITEMS
 Items will store all physical and non-physical media the library has. It will have the following attributes:
 
-- **id** : `uuid` *Universally unique identifier assigned when added to the database*
+- **id** : **key** : `uuid` *Universally unique identifier assigned when added to the database*
 - **copies** : `integer` *The total number of copies the library has of an item, including those currently on loan*
 - **publisher** : `text` *The publisher of the media. This will refer to the primary production studio for DVDs*
 - **author** : `text` *The author's name, as it is listed by the book. In the case of DVD's it will be the primary director's name. In the case of magazines this field will be set to the same as the publisher field*
 - **acquired** : `timestamp` *The time that the media was added to the library database*
 - **link** : `text` *A link to the Wikipedia page of the media item*
-- **genre** : `text[]` *Will contain all applicable genres for a given media item. Possible genres are "Fiction", "Non-Fiction", "Science Fiction & Fantasy", "Mystery & Thriller", "Comedy", "Romance", "History & Biography", "Science & Technology", "Health & Wellness", "Arts & Culture", "Business & Finance"*
-- **media_type** : `text` *Value must be one of the following: "book", "ebook", "audiobook", "dvd", "magazine". Based on the value of media_type, additional attributes must be given values or set to null accordingly.*
+- **genre** : `text[]` *Will contain all applicable genres for a given media item. **Domain** = all possible combinations of {"Fiction", "Non-Fiction", "Science Fiction & Fantasy", "Mystery & Thriller", "Comedy", "Romance", "History & Biography", "Science & Technology", "Health & Wellness", "Arts & Culture", "Business & Finance"}*
+- **media_type** : `text` ***Domain** = {"book", "ebook", "audiobook", "dvd", "magazine"}. Based on the value of media_type, additional attributes must be given values or set to null accordingly.*
 
 **Additional attributes** will be defined according to `media_type`. Attributes will only be defined for an item if listed below; otherwise, they will be set to `NULL` for the item.
 
@@ -44,7 +44,7 @@ Items will store all physical and non-physical media the library has. It will ha
 #### USERS
 Users will contain the members of the library, both staff and customers. It will have the following attributes:
 
-- **id** : `uuid` *Universally unique identifier assigned when added to the database*
+- **id** : **key** : `uuid` *Universally unique identifier assigned when added to the database*
 - **joined** : `timestamp` *The time that the user was added to the library database*
 - **is_administrator** : `boolean` *True if the user has administrative access to the database*
 - **is_student** : `boolean` *True if the user is a student at any of the community's schools*
@@ -55,8 +55,8 @@ Users will contain the members of the library, both staff and customers. It will
 Users will take out loans on media items. It will have the following attributes
 
 - **id** : `uuid` *Universally unique identifier assigned when added to the database*
-- **user_id** : `uuid` *ID of the user performing the borrow*
-- **item_id** : `uuid` *ID of the item to be borrowed*
+- **user_id** : **Foreign key, references USERS.id** : `uuid` *ID of the user performing the borrow*
+- **item_id** : **Foreign key, references ITEMS.id** : `uuid` *ID of the item to be borrowed*
 - **date_made** : `timestamp` *The time that the user requested the loan*
 - **date_received** : `timestamp` *The time that the user received the loan. Will be null while the user is on the waiting list*
 - **date_due** : `timestamp` *The date that the loan is due. Will be null until the user returns the book*
