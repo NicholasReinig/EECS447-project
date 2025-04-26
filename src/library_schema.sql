@@ -51,7 +51,7 @@ CREATE TABLE media (
 CREATE TABLE book (
     book_id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     media_id         INT UNSIGNED NOT NULL,
-    isbn             VARCHAR(17) NOT NULL,
+    isbn             VARCHAR(17) UNIQUE NOT NULL,
     page_count       INT UNSIGNED,
     publisher        INT UNSIGNED,
     publication_year INT NOT NULL CHECK (publication_year > 0),
@@ -67,7 +67,7 @@ CREATE TABLE book (
 CREATE TABLE digital (
     digital_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     media_id   INT UNSIGNED NOT NULL,
-    isbn       VARCHAR(17) NOT NULL,
+    isbn       VARCHAR(17) UNIQUE NOT NULL,
     format     ENUM('dvd') DEFAULT 'dvd' NOT NULL,
     publisher  INT UNSIGNED,
     publication_year INT NOT NULL CHECK (publication_year > 0),

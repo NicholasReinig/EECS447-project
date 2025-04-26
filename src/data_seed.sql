@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Example Data for Testing ----------------------------------------------------
+--------------------------------------------------------------------------------
+
 -- Insert data into `contact_info`
 INSERT INTO contact_info (email, phone, address) VALUES
 ('example@example.com'       , 'XXX-XXX-XXXX', 'XX Example Drive, Example'      ),
@@ -133,3 +137,5 @@ INSERT INTO loan (copy_id, client_id, loan_date, return_date) VALUES
 -- Insert data into `reservation`
 INSERT INTO reservation (media_id, client_id, reservation_date) VALUES
 (3, 2, '2025-02-05');
+
+--------------------------------------------------------------------------------

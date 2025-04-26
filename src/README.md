@@ -14,14 +14,14 @@ RECOMMENDED APPROACH
 While connected to MariaDB CLI:
 1. Create DB: `CREATE DATABASE library;`
 2. Enter DB: `USE library;`
-3. Create tables: `SOURCE </.../path/to/src/migration.sql>`
+3. Create tables: `SOURCE </.../path/to/src/library_schema.sql>`
 
 # Organization
 ### Table Definitions
-The DDL statements used for creating the database are stored in `./migration.sql`. After modifying statements in this file, recreate the database using: `DROP DATABASE library; CREATE DATABASE library; USE library;`.
+The DDL statements used for creating the database are stored in `./library_schema.sql`. After modifying statements in this file, recreate the database using: `DROP DATABASE library; CREATE DATABASE library; USE library;`.
 
 ### Data Hydration
-The file `data_hydration.sql` provides a small set of hand-crafted data points to be used for testing small queries. A larger procedural population script will be added later.
+The file `data_seed.sql` provides a small set of hand-crafted data points to be used for testing small queries. A larger procedural population script will be added later.
 
 ### Example Queries
-Some example queries have been provided in `example_queries.sql` these match suggestions from `00-library-database-project-description.pdf`.
+Some example queries have been provided in `test_queries.sql` these match suggestions from `00-library-database-project-description.pdf`.
