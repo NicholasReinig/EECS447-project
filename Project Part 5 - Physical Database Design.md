@@ -14,7 +14,7 @@ The Library Management System will cover a wide range of responsibilities. It wi
 - RDBMS: Relation Database Management System
 - SQL: Structured Query Language
 
-### Platform
+### Choosing Our Platform
 We have decided to use MariaDB as our database platform for this project. MariaDB is a fork of MySQL, it expands on MySQL's functionality through a community-driven development effort while simultaneously maintaining cross-compatibility. This suits are needs since we want a DBMS that was relational and feature rich. We chose this RDBMS in particular since MySQL and by extension MariaDB uses well known syntax which is valuable to learn for applications within industry (notably, MariaDB has better licensing and performance than MySQL). More importantly, however, the University of Kansas's EECS department provides students with a free MariaDB account hosted on their infrastructure which we have decided to leverage for improved development workflow. Having the database deployed on a remote host allows all team members to observe the same database instance enabling improved communication. Moreover, the performance characteristics of the EECS servers better mirror the performance one would expect in real production, allowing us to make more accurate inferences about the performance of our system.
 
 ### Physical Schema
@@ -23,12 +23,12 @@ All the DDL statements used to construct our library database can be found in:
 Notably, this includes both table creation statements as well as triggers for ensuring database integrity in complex situations.
 
 #### Data Population
-Our project includes a data population generator found in *[/src/seeding/create_seed.py](/src/seeding/create_seed.py)* it uses data from *[https://openlibrary.org](https://openlibrary.org)* to generate realistic library data. Other methods are used to generate fake clients and contact information. Notably, this script generates around 300 media items, 1,000 clients, and 10,000+ other datapoints. This script provides *every* table with realistic data. An example of the output file for the script can be found at *[/src/seeding/seed_data.sql](/src/seeding/seed_data.sql)*.
+Our project includes a data population generator found in *[/src/seeding/create_seed.py](/src/seeding/create_seed.py)* it uses data from *[https://openlibrary.org](https://openlibrary.org)* to generate realistic library data. Other methods are used to generate fake clients and contact information. Notably, this script generates around 300 media items, 500 clients, and thousands of other datapoints (with the ability to be scaled indefinitely). This script provides *every* table with realistic data. An example of the output file for the script can be found at *[/src/seeding/seed_data.sql](/src/seeding/seed_data.sql)*.
 
 ### Table Contents
-A snapshot of the table contents for our database after seeding can be found in:
+A snapshot of the table contents for our database after data population can be found in:
 **[/artifacts/table_contents.txt](artifacts/table_contents.txt)**.
-Each table is shown filled with the example data explained above.
+Each table is shown filled with the example data explained above (i.e., data generated using our script which fetches media data from *[https://openlibrary.org](https://openlibrary.org)*). The tables are printed in the format described by *[/artifacts/print_tables.sql](/artifacts/print_tables.sql)*, as suggested by the instructor.
 
 #### Functionality testing
 Useful SQL queries used for confirming the database's functionality can be found in:

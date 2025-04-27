@@ -43,7 +43,7 @@ JOIN media_genre mg ON m.media_id  = mg.media_id
 JOIN genre       g  ON mg.genre_id = g.genre_id
 LEFT JOIN copy   c  ON b.media_id  = c.media_id
 LEFT JOIN loan   l  ON c.copy_id   = l.copy_id
-WHERE g.genre_name = 'Art'
+WHERE g.genre_name = 'fantasy'
 AND (l.loan_id IS NULL OR l.return_date IS NOT NULL)
 GROUP BY m.media_id;
 

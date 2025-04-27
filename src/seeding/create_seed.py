@@ -105,8 +105,8 @@ def get_genres(subjects):
     """
     Get good genres from the subjects.
     """
-    return [genre.replace("\'", "\'\'") for genre in subjects \
-            if genre_is_valid(genre)]
+    return [genre.replace("\'", "\'\'").lower() for genre in subjects \
+           if genre_is_valid(genre)]
 
 def author_is_valid(author):
     """
@@ -201,7 +201,7 @@ def create_media_data():
 
     return all_items
 
-def create_client_data(n=1000):
+def create_client_data(n=500):
     fake = faker.Faker()
 
     return [{
@@ -282,11 +282,13 @@ def create_insert_statements():
                 author_index  = len(author_lookup)
             media_author += [f"({media_id}, {author_index})"]
 
+    random.shuffle(media_genre)
+    random.shuffle(media_author)
     copy, copy_lookup = shuffle_together(copy, copy_lookup)
 
     # Create fake loans
     for i in range(len(client_data)):
-        for _ in range(random.randint(0, 10)):
+        for _ in range(random.randint(0, 8)):
              copy_id     = random.randint(1, len(copy))
              loan_date   = fake.date_between(start_date="-3y", end_date="today")
              return_date = fake.date_between(start_date=loan_date, end_date="today")
