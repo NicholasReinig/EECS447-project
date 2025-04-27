@@ -30,6 +30,8 @@ A snapshot of the table contents for our database after data population can be f
 **[/artifacts/table_contents.txt](artifacts/table_contents.txt)**.
 Each table is shown filled with the example data explained above (i.e., data generated using our script which fetches media data from *[https://openlibrary.org](https://openlibrary.org)*). The tables are printed in the format described by *[/artifacts/print_tables.sql](/artifacts/print_tables.sql)*, as suggested by the instructor.
 
+***NOTE: [/artifacts/table_contents.txt](artifacts/table_contents.txt) is quite large, you may need to download the file to view it conveniently***
+
 #### Functionality testing
 Useful SQL queries used for confirming the database's functionality can be found in:
 *[/src/queries](src/queries/)*.
