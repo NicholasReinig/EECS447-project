@@ -15,13 +15,15 @@ While connected to MariaDB CLI:
 1. Create DB: `CREATE DATABASE library;`
 2. Enter DB: `USE library;`
 3. Create tables: `SOURCE </.../path/to/src/library_schema.sql>`
+4. Seed the tables `SOURCE </.../path/to/src/seeding/seed_data.sql>`
 
 # Organization
 ### Table Definitions
 The DDL statements used for creating the database are stored in `./library_schema.sql`. After modifying statements in this file, recreate the database using: `DROP DATABASE library; CREATE DATABASE library; USE library;`.
 
 ### Data Hydration
-The file `data_seed.sql` provides a small set of hand-crafted data points to be used for testing small queries. A larger procedural population script will be added later.
+The file `seed_data.sql` provides a **large** set of example data to hydrate the database with. Said file is procedurally generated using `create_seed.sql`, this script uses data from [https://openlibrary.org](https://openlibrary.org). \\
+Additionally, a smaller data seeding file, `small_seed_data.sql` is provided for situations where the larger dataset is unwieldy.
 
 ### Example Queries
 Some example queries have been provided in `test_queries.sql` these match suggestions from `00-library-database-project-description.pdf`.

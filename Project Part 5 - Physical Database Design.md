@@ -23,9 +23,7 @@ All the DDL statements used to construct our library database can be found in:
 Notably, this includes both table creation statements as well as triggers for ensuring database integrity in complex situations.
 
 #### Data Population
-Our project includes data population scripts
-
-*@TODO: Add reference here...*
+Our project includes a data population generator found in *[/src/seeding/create_seed.py](/src/seeding/create_seed.py)* it uses data from *[https://openlibrary.org](https://openlibrary.org)* to generate realistic library data. Other methods are used to generate fake clients and contact information. Notably, this script generates around 300 media items, 1,000 clients, and 10,000+ other datapoints. This script provides *every* table with realistic data. An example of the output file for the script can be found at *[/src/seeding/seed_data.sql](/src/seeding/seed_data.sql)*.
 
 ### Table Contents
 A snapshot of the table contents for our database after seeding can be found in:

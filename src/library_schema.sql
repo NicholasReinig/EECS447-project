@@ -6,7 +6,7 @@
 CREATE TABLE contact_info (
     contact_info_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     email           VARCHAR(255),
-    phone           VARCHAR(15),
+    phone           VARCHAR(31),
     address         VARCHAR(512)
 );
 
@@ -54,7 +54,7 @@ CREATE TABLE book (
     isbn             VARCHAR(17) UNIQUE NOT NULL,
     page_count       INT UNSIGNED,
     publisher        INT UNSIGNED,
-    publication_year INT NOT NULL CHECK (publication_year > 0),
+    publication_year INT CHECK (publication_year IS NULL OR publication_year >= 0),
     language         VARCHAR(3) DEFAULT 'EN',
     FOREIGN KEY (media_id)  REFERENCES media(media_id) ON DELETE CASCADE,
     FOREIGN KEY (publisher) REFERENCES publisher(publisher_id),
@@ -70,7 +70,7 @@ CREATE TABLE digital (
     isbn       VARCHAR(17) UNIQUE NOT NULL,
     format     ENUM('dvd') DEFAULT 'dvd' NOT NULL,
     publisher  INT UNSIGNED,
-    publication_year INT NOT NULL CHECK (publication_year > 0),
+    publication_year INT CHECK (publication_year IS NULL OR publication_year >= 0),
     FOREIGN KEY (media_id)  REFERENCES media(media_id) ON DELETE CASCADE,
     FOREIGN KEY (publisher) REFERENCES publisher(publisher_id)
 );
@@ -139,7 +139,7 @@ CREATE TABLE reservation (
     media_id          INT UNSIGNED NOT NULL,
     client_id         INT UNSIGNED NOT NULL,
     reservation_date  DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (media_id)  REFERENCES copy(media_id)    ON DELETE CASCADE,
+    FOREIGN KEY (media_id)  REFERENCES media(media_id)   ON DELETE CASCADE,
     FOREIGN KEY (client_id) REFERENCES client(client_id) ON DELETE CASCADE
 );
 
@@ -171,7 +171,7 @@ BEGIN
                 FROM loan 
                 WHERE client_id = NEW.client_id 
                 AND return_date IS NULL
-            ) >= loan_limit THEN
+            ) > loan_limit THEN
             SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Loan limit exceeded for this client.';
         END IF;
@@ -190,8 +190,9 @@ BEGIN
         SELECT 1
         FROM copy C
         LEFT JOIN loan L ON C.copy_id = L.copy_id
-        WHERE C.media_id = NEW.media_id
-          AND (L.loan_id IS NULL OR L.return_date IS NOT NULL)
+        WHERE C.media_id = 12
+        GROUP BY C.copy_id
+        HAVING COUNT(L.loan_id) = 0 OR MAX(ISNULL(L.return_date)) <> 1
     ) THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Reservation not allowed: Not all copies of the media are currently on loan.';

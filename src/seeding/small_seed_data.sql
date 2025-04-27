@@ -2,6 +2,9 @@
 -- Example Data for Testing ----------------------------------------------------
 --------------------------------------------------------------------------------
 
+-- @NOTE: THIS IS THE MINIMAL DATA SEEDING SET. USED FOR SANITY CHECKS.
+-- FOR A BETTER AND LARGER DATA SEEDING SCRIPT USE "seed_data.sql" !!!
+
 -- Insert data into `contact_info`
 INSERT INTO contact_info (email, phone, address) VALUES
 ('example@example.com'       , 'XXX-XXX-XXXX', 'XX Example Drive, Example'      ),
