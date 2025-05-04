@@ -29,4 +29,4 @@ This will perform all the queries from the requirements with labels. Queries may
 #### Thorough Checking
 Refer to `src/test_queries.sql` and perform individual queries by copy and pasting.
 
-##### In either case, please do read over the sql files themselves, as they contain relevant comments
+##### In either case, please do read over the sql files themselves as they contain relevant comments.
