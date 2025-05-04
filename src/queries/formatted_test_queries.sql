@@ -1,8 +1,12 @@
 --------------------------------------------------------------------------------
--- Example Queries to Demonstrate DB Usage -------------------------------------
+-- Formatted Queries to Demonstrate DB Usage -------------------------------------
 --------------------------------------------------------------------------------
 
--- List all books by a specific author
+SELECT 'This is Team 23s database project. The following is a convenience file that runs the queries in a slightly more readable format for easy grading';
+SELECT 'Many queries are limited in this file to make the results more readable';
+SELECT 'Please refer to test_queries.sql if you want the pure queries';
+
+SELECT 'List all books by a specific author';
 -- Display all books in the library collection written by a particular author.
 SELECT m.title AS book_title
 FROM  book         b
@@ -12,7 +16,7 @@ JOIN  author       a  ON ma.author_id = a.author_id
 WHERE a.name = 'William Shakespeare';
 -- other authors: 'Bill Wallace", "Tom Clancy"
 
--- Find books by publication year
+SELECT 'Find books by publication year';
 -- Retrieve a list of books published in a specific year.
 SELECT m.title AS book_title
 FROM  book  b
@@ -20,7 +24,7 @@ JOIN  media m ON b.media_id = m.media_id
 WHERE b.publication_year = 1998;
 -- other years: 2015, 1472
 
--- Check membership status
+SELECT 'Check membership status';
 -- Display the current status and account information for a specific client based on their unique ID.
 SELECT 
     c.client_id,
@@ -34,7 +38,8 @@ FROM  client c
 JOIN  contact_info ci ON c.contact_id = ci.contact_info_id
 WHERE c.client_id = 1;
 
--- Fine calculation 
+
+SELECT 'Fine calculation';
 -- Calculate the total fines owed by each member, considering overdue books and a daily fine rate (e.g., $0.25 per day).
 SELECT 
     c.client_id,
@@ -46,9 +51,11 @@ JOIN client c ON l.client_id = c.client_id
 WHERE l.return_date IS NULL
   AND l.due_date < CURDATE()
 GROUP BY c.client_id, c.name
-ORDER BY total_fines DESC;
+ORDER BY total_fines DESC
+LIMIT 10;
 
--- Book availability
+
+SELECT 'Book availability';
 -- Display a list of all available books (not currently borrowed) within a specific genre.
 SELECT 
     b.book_id,
@@ -68,9 +75,8 @@ WHERE l.loan_id IS NULL AND g.genre_name = 'art'
 GROUP BY b.book_id, m.title, b.isbn, b.language, b.publication_year
 ORDER BY m.title;
 -- Note: use 'nintendo' as alternate value to get results
--- This query is limited due to very few database entries matching the description
 
--- Frequent borrowers of a specific genre 
+SELECT 'Frequent borrowers of a specific genre';
 -- Identify the members who have borrowed the most books in a particular genre (e.g., "Mystery") in the last year.
 SELECT 
     cl.client_id,
@@ -87,7 +93,8 @@ WHERE g.genre_name = 'Mystery'
 GROUP BY cl.client_id, cl.name
 ORDER BY borrowed_count DESC;
 
--- Books due soon 
+
+SELECT 'Books due soon';
 -- Generate a report of all books due within the next week, sorted by due date.
 SELECT 
     l.loan_id,
@@ -102,7 +109,9 @@ WHERE l.return_date IS NULL
   AND l.due_date BETWEEN CURDATE() AND CURDATE() + INTERVAL 7 DAY
 ORDER BY l.due_date ASC;
 
--- Members with overdue books: 
+
+
+SELECT 'Members with overdue books';
 -- List all members who currently have at least one overdue book, along with the titles of the overdue books.
 SELECT 
     cl.client_id,
@@ -115,10 +124,13 @@ JOIN media m ON cp.media_id = m.media_id
 JOIN client cl ON cl.client_id = l.client_id
 WHERE l.return_date IS NULL
   AND l.due_date < CURDATE()
-ORDER BY cl.name, l.due_date;
+ORDER BY cl.name, l.due_date
+limit 10;
 -- NOTE: do 'CURDATE() + INTERVAL 15 DAY' to get results, this proves the statement works, just no overdue books at the moment
 
--- Average borrowing time:
+
+
+SELECT 'Average borrowing time';
 -- Calculate the average number of days members borrow books for a specific genre.
 SELECT 
     g.genre_name,
@@ -132,7 +144,8 @@ WHERE l.return_date IS NOT NULL
   AND g.genre_name = 'Science'
 GROUP BY g.genre_name;
 
--- Most popular author in the last month 
+
+SELECT 'Most popular author in the last month';
 -- Determine the author whose books have been borrowed the most in the last month.
 SELECT 
     a.author_id,
@@ -148,7 +161,8 @@ GROUP BY a.author_id, a.name
 ORDER BY borrow_count DESC
 LIMIT 1;
 
--- Monthly fees report: 
+
+SELECT 'Monthly fees report';
 -- Generate a report of total fees collected within the last month, broken down by membership type.
 SELECT 
     c.membership_type,
@@ -160,7 +174,8 @@ WHERE l.return_date IS NULL
   AND l.loan_date >= CURDATE() - INTERVAL 1 MONTH
 GROUP BY c.membership_type;
 
--- Exceeded borrowing limits
+SELECT 'Exceeded borrowing limits';
+SELECT 'NOTE: Refer to the comments, we have a trigger that disallows this behavior';
 -- Produce a list of clients who have exceeded their borrowing limits.
 SELECT 
     c.client_id,
@@ -178,20 +193,28 @@ HAVING (
 );
 -- NOTE: Our trigger limit_loans_per_client makes the existence of clients who have exceeded borrowing limits impossible, it will return an empty set
 
--- Frequent borrowed items by client type 
--- Determine the most frequently borrowed items by each client type.
-SELECT 
-    c.membership_type,
-    m.title,
-    COUNT(*) AS borrow_count
-FROM loan l
-JOIN copy cp ON l.copy_id = cp.copy_id
-JOIN media m ON cp.media_id = m.media_id
-JOIN client c ON c.client_id = l.client_id
-GROUP BY c.membership_type, m.title
-ORDER BY c.membership_type, borrow_count DESC;
 
--- Never late returns
+SELECT 'Frequent borrowed items by client type';
+-- Determine the most frequently borrowed items by each client type.
+SELECT membership_type, title, borrow_count
+FROM (
+    SELECT 
+        c.membership_type,
+        m.title,
+        COUNT(*) AS borrow_count,
+        ROW_NUMBER() OVER (PARTITION BY c.membership_type ORDER BY COUNT(*) DESC) AS rank
+    FROM loan l
+    JOIN copy cp ON l.copy_id = cp.copy_id
+    JOIN media m ON cp.media_id = m.media_id
+    JOIN client c ON c.client_id = l.client_id
+    GROUP BY c.membership_type, m.title
+) AS ranked
+WHERE rank <= 10
+ORDER BY membership_type, rank;
+
+
+
+SELECT 'Never late returns';
 -- Find out which clients have never returned an item late.
 SELECT 
     c.client_id,
@@ -205,14 +228,16 @@ WHERE NOT EXISTS (
       AND l.return_date > l.due_date
 );
 
--- Average loan duration
+
+SELECT 'Average loan duration';
 -- Calculate the average time an item stays on loan before being returned
 SELECT 
     AVG(DATEDIFF(return_date, loan_date)) AS avg_loan_duration_days
 FROM loan
 WHERE return_date IS NOT NULL;
 
--- Monthly summary report
+
+SELECT 'Monthly summary report';
 -- Generate a report summarizing the total number of items loaned, total fees collected, and most popular items for the month.
 SELECT 
     -- Total items loaned this month
@@ -285,7 +310,9 @@ SELECT
      LIMIT 1 OFFSET 2) AS third_most_popular_item_count;
 -- NOTE: This is a wordy return, currently set up to give the three most popular items of the last month
 
--- Statistics breakdown 
+
+
+SELECT 'Statistics breakdown';
 -- Breakdown the statistics by client type and item category (books, digital media, magazines).
 SELECT 
     c.membership_type,
@@ -311,7 +338,8 @@ WHERE l.loan_date >= CURDATE() - INTERVAL 1 MONTH
 GROUP BY c.membership_type, item_category
 ORDER BY c.membership_type, item_category;
 
--- Client borrowing report
+
+SELECT 'Client borrowing report';
 -- Produce an individual report for each client showing their borrowing history, outstanding fees, and any reserved items.
 SELECT 
     c.client_id,
@@ -343,10 +371,13 @@ LEFT JOIN (
     FROM reservation r
     JOIN media m ON r.media_id = m.media_id
 ) AS res ON res.client_id = c.client_id
-ORDER BY c.client_id, l.loan_date DESC, res.reservation_date DESC;
+ORDER BY c.client_id, l.loan_date DESC, res.reservation_date DESC
+LIMIT 10;
 -- NOTE: I recommend adding LIMIT 10 at the end to see the structure better
 
--- Item availability and history
+
+
+SELECT 'Item availability and history';
 -- List all items, their current availability status, and their last borrowed date. Highlight items that have not been borrowed in the past six months.
 SELECT 
     m.media_id,
@@ -370,10 +401,12 @@ FROM media m
 LEFT JOIN copy c ON c.media_id = m.media_id
 LEFT JOIN loan l ON l.copy_id = c.copy_id
 GROUP BY m.media_id, m.title
-ORDER BY m.title;
+ORDER BY m.title
+LIMIT 10;
 --NOTE: Due to long loans, it is possible items to be both on loan and not borrowed in 6+ months
 
--- Overdue items report 
+
+SELECT 'Overdue items report';
 -- Generate a report listing all overdue items, the client responsible, and the calculated late fees.
 SELECT 
     l.loan_id,
@@ -390,9 +423,11 @@ JOIN copy cp ON l.copy_id = cp.copy_id
 JOIN media m ON cp.media_id = m.media_id
 WHERE l.return_date IS NULL
   AND l.due_date < CURDATE()
-ORDER BY l.due_date ASC;
+ORDER BY l.due_date ASC
+LIMIT 10;
 
--- Revenue summary
+
+SELECT 'Revenue summary';
 -- Summarize the library’s revenue from fees, showing the breakdown by membership type and item category
 SELECT 
     c.membership_type,
@@ -419,10 +454,12 @@ LEFT JOIN magazine mg ON mg.media_id = m.media_id
 GROUP BY c.membership_type, item_category
 ORDER BY c.membership_type, item_category;
 
+
 --SUPER COOL BONUS QUERY!!!!!!
 -- this query takes a client, and returns some recommended items they have never taken on loan before
 -- it calculates this by finding items that users with similar loan histories have commonly taken on loan, that the client has never taken on loan
-
+SELECT 'Bonus Query: A reccomendation engine based on what similar members have enjoyed';
+SELECT 'Presents a target client with items they have never borrowed, that members with a similar borrowing history have borrowed';
 WITH target_loans AS (
     SELECT DISTINCT cp.media_id
     FROM loan l

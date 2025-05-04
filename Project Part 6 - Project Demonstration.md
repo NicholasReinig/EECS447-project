@@ -1,6 +1,8 @@
 # Testing
+#### We intend to demonstrate our project live and our team administrator will plan this demo via email. The following instructions for remotely testing our project are not designed for grading.
+
 ### Using remote servers:
-1. Connect to cycle servers: `ssh <KUID>@cycle1.eecs.ku.edu`.
+1. Connect to cycle servers: `ssh <KUID>@cycle2.eecs.ku.edu`.
 2. Connect to MariaDB: `mysql -h mysql.eecs.ku.edu -u <USERID> -p` \
    *NOTE:* USERID and password is provided by the instructor.
 
@@ -17,13 +19,14 @@ While connected to MariaDB CLI:
 3. Create tables: `SOURCE </.../path/to/src/library_schema.sql>`
 4. Seed the tables `SOURCE </.../path/to/src/seeding/modified_seed_data.sql>`
 
-# Organization
-### Table Definitions
-The DDL statements used for creating the database are stored in `./library_schema.sql`. After modifying statements in this file, recreate the database using: `DROP DATABASE library; CREATE DATABASE library; USE library;`.
+### Executing Queries:
+After creating the database:
 
-### Data Hydration
-The file `seed_data.sql` provides a **large** set of example data to hydrate the database with. Said file is procedurally generated using `create_seed.sql`, this script uses data from [https://openlibrary.org](https://openlibrary.org). \\
-Additionally, a smaller data seeding file, `small_seed_data.sql` is provided for situations where the larger dataset is unwieldy.
+#### Quick Checking
+Execute `SOURCE </.../path/to/src/formatted_test_queries.sql>`
+This will perform all the queries from the requirements with labels. Queries may be modified or limited to keep the printout readable. But not all desired behavior may be observed due to the limits. For example, a prompt to display all members with outstanding fines may be shortened to only the ten with the largest amount of outstanding fines.
 
-### Example Queries
-Example queries have been provided in `test_queries.sql` these match suggestions from `00-library-database-project-description.pdf`.
+#### Thorough Checking
+Refer to `src/test_queries.sql` and perform individual queries by copy and pasting.
+
+##### In either case, please do read over the sql files themselves, as they contain relevant comments
