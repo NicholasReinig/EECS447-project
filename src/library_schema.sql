@@ -201,15 +201,22 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
--- Make default loan due date two weeks from loan start.
+
+DROP TRIGGER IF EXISTS set_due_date_default$$
+-- Make the default due date two weeks from the start of the loan
 CREATE TRIGGER set_due_date_default
 BEFORE INSERT ON loan
 FOR EACH ROW
 BEGIN
     IF NEW.due_date IS NULL THEN
-        SET NEW.due_date = DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 2 WEEK);
+        SET NEW.due_date = DATE_ADD(
+            COALESCE(NEW.loan_date, CURRENT_TIMESTAMP), 
+            INTERVAL 2 WEEK
+        );
     END IF;
 END$$
+
 DELIMITER ;
+
 
 --------------------------------------------------------------------------------
