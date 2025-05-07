@@ -1,0 +1,567 @@
+MariaDB [447s25_n041r294]> source /home/n041r294/EECS447Project/formatted_test_queries.sql;
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+| This is Team 23s database project. The following is a convenience file that runs the queries in a slightly more readable format for easy grading |
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+| This is Team 23s database project. The following is a convenience file that runs the queries in a slightly more readable format for easy grading |
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
++-------------------------------------------------------------------------+
+| Many queries are limited in this file to make the results more readable |
++-------------------------------------------------------------------------+
+| Many queries are limited in this file to make the results more readable |
++-------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
++---------------------------------------------------------------+
+| Please refer to test_queries.sql if you want the pure queries |
++---------------------------------------------------------------+
+| Please refer to test_queries.sql if you want the pure queries |
++---------------------------------------------------------------+
+1 row in set (0.000 sec)
+
++-------------------------------------+
+| List all books by a specific author |
++-------------------------------------+
+| List all books by a specific author |
++-------------------------------------+
+1 row in set (0.000 sec)
+
++-----------------+
+| book_title      |
++-----------------+
+| King Lear       |
+| Macbeth         |
+| King Richard II |
+| Julius Caesar   |
++-----------------+
+4 rows in set (0.001 sec)
+
++--------------------------------+
+| Find books by publication year |
++--------------------------------+
+| Find books by publication year |
++--------------------------------+
+1 row in set (0.000 sec)
+
++------------------------+
+| book_title             |
++------------------------+
+| The ID casebook        |
+| Portable Pets          |
+| Mathematics            |
+| Tom Clancy's Net Force |
++------------------------+
+4 rows in set (0.000 sec)
+
++-------------------------+
+| Check membership status |
++-------------------------+
+| Check membership status |
++-------------------------+
+1 row in set (0.000 sec)
+
++-----------+----------------+-----------------+----------------+----------------------------+------------+---------------------------------------------------+
+| client_id | client_name    | membership_type | account_status | email                      | phone      | address                                           |
++-----------+----------------+-----------------+----------------+----------------------------+------------+---------------------------------------------------+
+|         1 | Michael Wilson | senior          | active         | michael.wilson@outlook.com | 7938611012 | 897 Michael Oval Apt. 764 Blackburnbury, MH 61416 |
++-----------+----------------+-----------------+----------------+----------------------------+------------+---------------------------------------------------+
+1 row in set (0.000 sec)
+
++------------------+
+| Fine calculation |
++------------------+
+| Fine calculation |
++------------------+
+1 row in set (0.000 sec)
+
++-----------+------------------+---------------+-------------+
+| client_id | client_name      | overdue_loans | total_fines |
++-----------+------------------+---------------+-------------+
+|        94 | Cassandra Ortiz  |            10 |     1538.00 |
+|       281 | William Ball     |             9 |     1374.25 |
+|       256 | Kelsey Ford      |             9 |     1355.75 |
+|        82 | Regina Maxwell   |             8 |     1318.25 |
+|        98 | Stephanie Santos |             9 |     1227.25 |
+|       179 | Travis Nguyen    |             7 |     1226.25 |
+|       212 | Sean Baker       |             5 |     1123.25 |
+|       391 | Cory Stark       |             8 |     1071.25 |
+|       171 | Kayla Hobbs      |             5 |      996.50 |
+|       342 | Marissa Nichols  |             5 |      925.25 |
++-----------+------------------+---------------+-------------+
+10 rows in set (0.003 sec)
+
++-------------------+
+| Book availability |
++-------------------+
+| Book availability |
++-------------------+
+1 row in set (0.000 sec)
+
++---------+-------------+---------------+----------+------------------+--------+------------------+
+| book_id | title       | isbn          | language | publication_year | genres | available_copies |
++---------+-------------+---------------+----------+------------------+--------+------------------+
+|       2 | Henry Moore | 3815145954100 | en       |             1934 | art    |                1 |
++---------+-------------+---------------+----------+------------------+--------+------------------+
+1 row in set (0.002 sec)
+
++----------------------------------------+
+| Frequent borrowers of a specific genre |
++----------------------------------------+
+| Frequent borrowers of a specific genre |
++----------------------------------------+
+1 row in set (0.000 sec)
+
++-----------+---------------------+----------------+
+| client_id | client_name         | borrowed_count |
++-----------+---------------------+----------------+
+|       371 | John Liu            |              2 |
+|        90 | Jose Cruz           |              2 |
+|        19 | Kathy Mitchell      |              2 |
+|        35 | Christopher Chan    |              1 |
+|       244 | Jesse Davis         |              1 |
+|       403 | Erik Williams       |              1 |
+|       449 | William Le          |              1 |
+|       207 | Dawn Ayala          |              1 |
+|        31 | Kimberly Steele     |              1 |
+|       110 | Stanley Stewart     |              1 |
+|       495 | Randall Moore       |              1 |
+|       367 | Angelica Valenzuela |              1 |
+|        54 | Linda Davis         |              1 |
+|       411 | Jeffrey Villegas    |              1 |
+|       210 | Alyssa Perry        |              1 |
+|       131 | Jim Hunt            |              1 |
+|       333 | Jonathan Robinson   |              1 |
+|       342 | Marissa Nichols     |              1 |
+|         8 | Helen Jackson       |              1 |
+|       254 | Kayla Wong          |              1 |
+|       211 | John Harris         |              1 |
+|       278 | Lynn Murphy         |              1 |
+|        18 | Cassandra Brennan   |              1 |
+|       381 | Kathryn Thomas      |              1 |
+|       334 | John Scott          |              1 |
+|       241 | Tiffany Hall        |              1 |
+|       291 | Hector Owen         |              1 |
+|       292 | Jeffrey Ross        |              1 |
+|        25 | Andrew Alvarado     |              1 |
+|        21 | Anthony Watson      |              1 |
+|        15 | Travis Ortiz        |              1 |
+|       107 | David Anderson      |              1 |
+|        49 | Deborah Coffey      |              1 |
+|       470 | Kyle Neal           |              1 |
+|       366 | Lee Lopez           |              1 |
+|       282 | Jessica Stevens     |              1 |
+|       240 | Mark Torres         |              1 |
+|       422 | Bryan Moses         |              1 |
+|        94 | Cassandra Ortiz     |              1 |
+|       468 | Shawn Mathis        |              1 |
+|       332 | Cathy Yang          |              1 |
+|        58 | Chelsea Cervantes   |              1 |
+|       443 | Eric Gallagher      |              1 |
+|       191 | Ashley Lee          |              1 |
+|       310 | Roy Beasley         |              1 |
++-----------+---------------------+----------------+
+45 rows in set (0.013 sec)
+
++----------------+
+| Books due soon |
++----------------+
+| Books due soon |
++----------------+
+1 row in set (0.000 sec)
+
++---------+-----------------+--------------------------------------+---------------------+
+| loan_id | client_name     | book_title                           | due_date            |
++---------+-----------------+--------------------------------------+---------------------+
+|     642 | Kimberly Gibson | Fu qiang zhai cong shu zheng quan ji | 2025-05-06 00:00:00 |
+|    1190 | Colleen Campos  | King Richard II                      | 2025-05-07 00:00:00 |
+|    2736 | Natasha Kirby   | Buster                               | 2025-05-08 00:00:00 |
+|    1442 | Jeffrey Lewis   | Hatchet                              | 2025-05-10 00:00:00 |
++---------+-----------------+--------------------------------------+---------------------+
+4 rows in set (0.003 sec)
+
++----------------------------+
+| Members with overdue books |
++----------------------------+
+| Members with overdue books |
++----------------------------+
+1 row in set (0.000 sec)
+
++-----------+-----------------+-----------------------------------------------------------------+---------------------+
+| client_id | client_name     | overdue_book_title                                              | due_date            |
++-----------+-----------------+-----------------------------------------------------------------+---------------------+
+|       316 | Aaron Palmer    | A Brief History of Time                                         | 2023-08-09 00:00:00 |
+|       316 | Aaron Palmer    | Flush                                                           | 2024-03-03 00:00:00 |
+|       176 | Aaron Vance     | Harry Potter and the Deathly Hallows                            | 2023-03-28 00:00:00 |
+|       176 | Aaron Vance     | Sense and Sensibility                                           | 2024-06-03 00:00:00 |
+|       176 | Aaron Vance     | Don Quixote                                                     | 2025-04-19 00:00:00 |
+|        20 | Adam Tran       | Design of reinforced concrete                                   | 2023-01-15 00:00:00 |
+|        20 | Adam Tran       | Microbiology                                                    | 2023-02-16 00:00:00 |
+|        20 | Adam Tran       | Laws, etc                                                       | 2024-09-01 00:00:00 |
+|        30 | Alejandro Miles | Pioneers of modern design from William Morris to Walter Gropius | 2022-11-13 00:00:00 |
+|        30 | Alejandro Miles | Bible                                                           | 2023-05-07 00:00:00 |
++-----------+-----------------+-----------------------------------------------------------------+---------------------+
+10 rows in set (0.004 sec)
+
++------------------------+
+| Average borrowing time |
++------------------------+
+| Average borrowing time |
++------------------------+
+1 row in set (0.000 sec)
+
++------------+---------------------+
+| genre_name | average_borrow_days |
++------------+---------------------+
+| science    |            273.7744 |
++------------+---------------------+
+1 row in set (0.023 sec)
+
++---------------------------------------+
+| Most popular author in the last month |
++---------------------------------------+
+| Most popular author in the last month |
++---------------------------------------+
+1 row in set (0.000 sec)
+
++-----------+---------------------+--------------+
+| author_id | author_name         | borrow_count |
++-----------+---------------------+--------------+
+|       137 | William Shakespeare |            7 |
++-----------+---------------------+--------------+
+1 row in set (0.004 sec)
+
++---------------------+
+| Monthly fees report |
++---------------------+
+| Monthly fees report |
++---------------------+
+1 row in set (0.000 sec)
+
++-----------------+----------------------+
+| membership_type | total_fees_collected |
++-----------------+----------------------+
+| regular         |                12.75 |
+| student         |                 7.50 |
+| senior          |                 4.00 |
+| librarian       |                 3.50 |
++-----------------+----------------------+
+4 rows in set (0.002 sec)
+
++---------------------------+
+| Exceeded borrowing limits |
++---------------------------+
+| Exceeded borrowing limits |
++---------------------------+
+1 row in set (0.000 sec)
+
++-----------------------------------------------------------------------------+
+| NOTE: Refer to the comments, we have a trigger that disallows this behavior |
++-----------------------------------------------------------------------------+
+| NOTE: Refer to the comments, we have a trigger that disallows this behavior |
++-----------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+Empty set (0.002 sec)
+
++----------------------------------------+
+| Frequent borrowed items by client type |
++----------------------------------------+
+| Frequent borrowed items by client type |
++----------------------------------------+
+1 row in set (0.000 sec)
+
++-----------------+-----------------------------------------------------------------------------+--------------+
+| membership_type | title                                                                       | borrow_count |
++-----------------+-----------------------------------------------------------------------------+--------------+
+| regular         | Entrepreneurial financial management                                        |           21 |
+| regular         | Studies in Natural Products Chemistry                                       |           21 |
+| regular         | The Canterbury Tales                                                        |           19 |
+| regular         | The Great God Pan                                                           |           18 |
+| regular         | Progress in inorganic chemistry                                             |           18 |
+| regular         | Narrative of the life of Frederick Douglass                                 |           18 |
+| regular         | The Strange Case of Dr. Jekyll and Mr. Hyde                                 |           17 |
+| regular         | Biscuit Board Book (Biscuit)                                                |           17 |
+| regular         | A Brief History of Time                                                     |           17 |
+| regular         | The Mysterious Affair at Styles                                             |           16 |
+| student         | Romeo and Juliet                                                            |            7 |
+| student         | A Midsummer Night's Dream                                                   |            7 |
+| student         | Narrative of the life of Frederick Douglass                                 |            7 |
+| student         | Kokuritsu Kokkai Toshokan shozō Meijiki kankō tosho maikuro-ban shūsei      |            6 |
+| student         | The Time Machine                                                            |            6 |
+| student         | Advances in Heterocyclic Chemistry                                          |            6 |
+| student         | His Last Bow [8 stories]                                                    |            5 |
+| student         | The Enchanted Castle                                                        |            5 |
+| student         | Treasure Island                                                             |            5 |
+| student         | The science of getting rich, or, financial success through creative thought |            5 |
+| senior          | The Legend of Sleepy Hollow                                                 |            5 |
+| senior          | The Devil's Dictionary                                                      |            5 |
+| senior          | The Great God Pan                                                           |            4 |
+| senior          | Buster                                                                      |            4 |
+| senior          | Innovation and Entrepreneurship                                             |            3 |
+| senior          | The Canterbury Tales                                                        |            3 |
+| senior          | Emma                                                                        |            3 |
+| senior          | The instrument                                                              |            3 |
+| senior          | Autobiography                                                               |            3 |
+| senior          | Ἰλιάς                                                                       |            3 |
+| librarian       | Annual reports on NMR spectroscopy                                          |            4 |
+| librarian       | Software Engineering                                                        |            4 |
+| librarian       | King Lear                                                                   |            4 |
+| librarian       | That's Not My Puppy                                                         |            3 |
+| librarian       | His Last Bow [8 stories]                                                    |            3 |
+| librarian       | Julius Caesar                                                               |            3 |
+| librarian       | Where's Spot?                                                               |            3 |
+| librarian       | Kitten's Day Out                                                            |            3 |
+| librarian       | Rich Dad, Poor Dad for Teens                                                |            3 |
+| librarian       | The C Programming Language                                                  |            3 |
++-----------------+-----------------------------------------------------------------------------+--------------+
+40 rows in set (0.007 sec)
+
++--------------------+
+| Never late returns |
++--------------------+
+| Never late returns |
++--------------------+
+1 row in set (0.000 sec)
+
++-----------+----------------------+
+| client_id | client_name          |
++-----------+----------------------+
+|        21 | Anthony Watson       |
+|        23 | Christopher Gonzalez |
+|        27 | Samuel Russell       |
+|        55 | Amber Murray         |
+|        66 | Jill Gamble          |
+|        89 | Robert Barrera       |
+|        96 | Justin Mcbride       |
+|       102 | Jacqueline Good      |
+|       109 | Deborah Lopez        |
+|       115 | Christine Ellis      |
+|       127 | Bryan Walker         |
+|       130 | Kristin Franklin     |
+|       156 | Carol Mitchell       |
+|       167 | Angela Gonzalez      |
+|       168 | Perry Hurst          |
+|       180 | Maria Hayes          |
+|       181 | Kevin Campbell       |
+|       182 | Joe White            |
+|       203 | William Mcguire      |
+|       207 | Dawn Ayala           |
+|       213 | Denise Jones         |
+|       229 | Brandon Dawson       |
+|       245 | Matthew Rivera       |
+|       249 | Lori Greene          |
+|       251 | Anna Cobb            |
+|       256 | Kelsey Ford          |
+|       275 | Sarah Freeman        |
+|       290 | Kyle Lee             |
+|       296 | Marissa Rivera       |
+|       311 | Scott Allen          |
+|       312 | Danny Jenkins        |
+|       320 | Tony Salinas         |
+|       321 | Michelle Austin      |
+|       335 | Diana Coffey         |
+|       342 | Marissa Nichols      |
+|       348 | Jonathon Tran        |
+|       349 | Samantha Wolf        |
+|       355 | Sarah Henderson      |
+|       376 | Christopher Kelley   |
+|       378 | Joel Campbell        |
+|       379 | Linda Zavala         |
+|       380 | Frank Duncan         |
+|       389 | Sarah Brooks         |
+|       392 | Amanda Johnson       |
+|       394 | Mike Ruiz            |
+|       396 | Nina Gonzalez        |
+|       399 | James Shaw           |
+|       400 | Brittany Richards    |
+|       418 | Robert Nichols       |
+|       419 | Cindy Weiss          |
+|       421 | Nicole Fuentes       |
+|       428 | Audrey Rodriguez     |
+|       430 | Elizabeth Booker     |
+|       432 | Christine Garcia     |
+|       447 | Deanna Stout         |
+|       467 | April Henry          |
+|       469 | Victoria Brown       |
+|       480 | Melissa Bender       |
+|       481 | Craig Chaney         |
+|       491 | Brent Owens          |
+|       493 | Jennifer Burgess     |
++-----------+----------------------+
+61 rows in set (0.001 sec)
+
++-----------------------+
+| Average loan duration |
++-----------------------+
+| Average loan duration |
++-----------------------+
+1 row in set (0.000 sec)
+
++------------------------+
+| avg_loan_duration_days |
++------------------------+
+|               269.3260 |
++------------------------+
+1 row in set (0.001 sec)
+
++------------------------+
+| Monthly summary report |
++------------------------+
+| Monthly summary report |
++------------------------+
+1 row in set (0.000 sec)
+
++--------------------+----------------------+-------------------+-------------------------+--------------------------+--------------------------------+-------------------------+-------------------------------+
+| total_items_loaned | total_fees_collected | most_popular_item | most_popular_item_count | second_most_popular_item | second_most_popular_item_count | third_most_popular_item | third_most_popular_item_count |
++--------------------+----------------------+-------------------+-------------------------+--------------------------+--------------------------------+-------------------------+-------------------------------+
+|                 55 |                27.75 | King Richard II   |                       2 | Julius Caesar            |                              2 | Divina Commedia         |                             2 |
++--------------------+----------------------+-------------------+-------------------------+--------------------------+--------------------------------+-------------------------+-------------------------------+
+1 row in set (0.014 sec)
+
++----------------------+
+| Statistics breakdown |
++----------------------+
+| Statistics breakdown |
++----------------------+
+1 row in set (0.000 sec)
+
++-----------------+---------------+-------------+-------------+
+| membership_type | item_category | total_loans | total_fines |
++-----------------+---------------+-------------+-------------+
+| regular         | book          |          14 |        7.50 |
+| regular         | digital       |           9 |        4.25 |
+| regular         | magazine      |           9 |        1.00 |
+| student         | book          |           4 |        1.00 |
+| student         | digital       |           5 |        2.00 |
+| student         | magazine      |           6 |        4.50 |
+| senior          | digital       |           2 |        4.00 |
+| librarian       | book          |           4 |        3.50 |
+| librarian       | digital       |           1 |        0.00 |
+| librarian       | magazine      |           1 |        0.00 |
++-----------------+---------------+-------------+-------------+
+10 rows in set (0.003 sec)
+
++-------------------------+
+| Client borrowing report |
++-------------------------+
+| Client borrowing report |
++-------------------------+
+1 row in set (0.000 sec)
+
++-----------+----------------+---------+-------------------+---------------------+---------------------+-------------+-----------------+----------------+---------------------------------+---------------------+
+| client_id | client_name    | loan_id | borrowed_title    | loan_date           | due_date            | return_date | outstanding_fee | reservation_id | reserved_title                  | reservation_date    |
++-----------+----------------+---------+-------------------+---------------------+---------------------+-------------+-----------------+----------------+---------------------------------+---------------------+
+|         1 | Michael Wilson |     823 | Me Before You     | 2025-02-14 00:00:00 | 2025-02-28 00:00:00 | 2025-04-04  |            0.00 |            263 | Henry Moore                     | 2024-04-25 00:00:00 |
+|         1 | Michael Wilson |     823 | Me Before You     | 2025-02-14 00:00:00 | 2025-02-28 00:00:00 | 2025-04-04  |            0.00 |            420 | Elizabeth and Her German Garden | 2023-11-08 00:00:00 |
+|         1 | Michael Wilson |     823 | Me Before You     | 2025-02-14 00:00:00 | 2025-02-28 00:00:00 | 2025-04-04  |            0.00 |             53 | NRAEF ManageFirst               | 2023-03-27 00:00:00 |
+|         1 | Michael Wilson |     823 | Me Before You     | 2025-02-14 00:00:00 | 2025-02-28 00:00:00 | 2025-04-04  |            0.00 |            432 | Cricket in Times Square         | 2022-12-21 00:00:00 |
+|         1 | Michael Wilson |       8 | The Great God Pan | 2025-01-14 00:00:00 | 2025-01-28 00:00:00 | 2025-04-12  |            0.00 |            263 | Henry Moore                     | 2024-04-25 00:00:00 |
+|         1 | Michael Wilson |       8 | The Great God Pan | 2025-01-14 00:00:00 | 2025-01-28 00:00:00 | 2025-04-12  |            0.00 |            420 | Elizabeth and Her German Garden | 2023-11-08 00:00:00 |
+|         1 | Michael Wilson |       8 | The Great God Pan | 2025-01-14 00:00:00 | 2025-01-28 00:00:00 | 2025-04-12  |            0.00 |             53 | NRAEF ManageFirst               | 2023-03-27 00:00:00 |
+|         1 | Michael Wilson |       8 | The Great God Pan | 2025-01-14 00:00:00 | 2025-01-28 00:00:00 | 2025-04-12  |            0.00 |            432 | Cricket in Times Square         | 2022-12-21 00:00:00 |
+|         1 | Michael Wilson |    2545 | Essential Maths   | 2024-12-20 00:00:00 | 2025-01-03 00:00:00 | 2024-12-28  |            0.00 |            263 | Henry Moore                     | 2024-04-25 00:00:00 |
+|         1 | Michael Wilson |    2545 | Essential Maths   | 2024-12-20 00:00:00 | 2025-01-03 00:00:00 | 2024-12-28  |            0.00 |            420 | Elizabeth and Her German Garden | 2023-11-08 00:00:00 |
++-----------+----------------+---------+-------------------+---------------------+---------------------+-------------+-----------------+----------------+---------------------------------+---------------------+
+10 rows in set (0.029 sec)
+
++-------------------------------+
+| Item availability and history |
++-------------------------------+
+| Item availability and history |
++-------------------------------+
+1 row in set (0.000 sec)
+
++----------+------------------------------------+---------------------+---------------------+-------------------+
+| media_id | title                              | availability_status | last_borrowed_date  | attention_flag    |
++----------+------------------------------------+---------------------+---------------------+-------------------+
+|      258 | ... Trotzdem Ja zum Leben sagen    | On Loan             | 2024-12-07 00:00:00 | Recently borrowed |
+|      211 | A Brief History of Time            | On Loan             | 2025-04-23 00:00:00 | Recently borrowed |
+|      157 | A Christmas Carol                  | On Loan             | 2024-11-12 00:00:00 | Recently borrowed |
+|       57 | A Dog of Flanders                  | On Loan             | 2025-03-10 00:00:00 | Recently borrowed |
+|      107 | A history of New York              | On Loan             | 2025-01-08 00:00:00 | Recently borrowed |
+|       78 | A Midsummer Night's Dream          | On Loan             | 2025-02-10 00:00:00 | Recently borrowed |
+|      257 | A Mind That Found Itself           | On Loan             | 2025-04-11 00:00:00 | Recently borrowed |
+|      122 | A Study in Scarlet                 | On Loan             | 2025-04-09 00:00:00 | Recently borrowed |
+|       87 | A Tale of Two Cities               | On Loan             | 2025-04-18 00:00:00 | Recently borrowed |
+|      196 | Advances in Heterocyclic Chemistry | On Loan             | 2025-01-18 00:00:00 | Recently borrowed |
++----------+------------------------------------+---------------------+---------------------+-------------------+
+10 rows in set (0.007 sec)
+
++----------------------+
+| Overdue items report |
++----------------------+
+| Overdue items report |
++----------------------+
+1 row in set (0.000 sec)
+
++---------+-----------+-------------------+---------------------------------------------------+---------------------+---------------------+--------------+----------+
+| loan_id | client_id | client_name       | item_title                                        | loan_date           | due_date            | days_overdue | late_fee |
++---------+-----------+-------------------+---------------------------------------------------+---------------------+---------------------+--------------+----------+
+|    2468 |       379 | Linda Zavala      | The Story of the Amulet                           | 2022-04-27 00:00:00 | 2022-05-11 00:00:00 |         1091 |   272.75 |
+|    2746 |       270 | Edward Warren     | Tax administration                                | 2022-04-28 00:00:00 | 2022-05-12 00:00:00 |         1090 |   272.50 |
+|    1841 |       155 | George Williams   | The Mysterious Affair at Styles                   | 2022-04-29 00:00:00 | 2022-05-13 00:00:00 |         1089 |   272.25 |
+|    2505 |       103 | Michael Mcdonald  | Interactive Computing Series                      | 2022-04-30 00:00:00 | 2022-05-14 00:00:00 |         1088 |   272.00 |
+|    2433 |        39 | Leslie Klein      | The Curious Incident of the Dog in the Night-Time | 2022-04-30 00:00:00 | 2022-05-14 00:00:00 |         1088 |   272.00 |
+|    1201 |       281 | William Ball      | Harry Potter and the Philosopher's Stone          | 2022-05-02 00:00:00 | 2022-05-16 00:00:00 |         1086 |   271.50 |
+|    2206 |       259 | Elizabeth Wiggins | The War of the Worlds                             | 2022-05-03 00:00:00 | 2022-05-17 00:00:00 |         1085 |   271.25 |
+|     412 |       300 | Valerie Roberts   | The Last of the Mohicans                          | 2022-05-05 00:00:00 | 2022-05-19 00:00:00 |         1083 |   270.75 |
+|     873 |       301 | Troy Clark        | Le Tour du Monde en Quatre-Vingts Jours           | 2022-05-07 00:00:00 | 2022-05-21 00:00:00 |         1081 |   270.25 |
+|     624 |       276 | Karen Richardson  | The Wealth of Nations                             | 2022-05-07 00:00:00 | 2022-05-21 00:00:00 |         1081 |   270.25 |
++---------+-----------+-------------------+---------------------------------------------------+---------------------+---------------------+--------------+----------+
+10 rows in set (0.004 sec)
+
++-----------------+
+| Revenue summary |
++-----------------+
+| Revenue summary |
++-----------------+
+1 row in set (0.000 sec)
+
++-----------------+---------------+------------+
+| membership_type | item_category | total_fees |
++-----------------+---------------+------------+
+| regular         | book          |   43580.25 |
+| regular         | digital       |   60412.00 |
+| regular         | magazine      |   50483.25 |
+| student         | book          |   13892.25 |
+| student         | digital       |   14875.00 |
+| student         | magazine      |   13000.50 |
+| senior          | book          |    7381.75 |
+| senior          | digital       |    6885.25 |
+| senior          | magazine      |    8089.00 |
+| librarian       | book          |    7231.00 |
+| librarian       | digital       |    7514.25 |
+| librarian       | magazine      |    7379.75 |
++-----------------+---------------+------------+
+12 rows in set (0.007 sec)
+
++---------------------------------------------------------------------------------+
+| Bonus Query: A reccomendation engine based on what similar members have enjoyed |
++---------------------------------------------------------------------------------+
+| Bonus Query: A reccomendation engine based on what similar members have enjoyed |
++---------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
++---------------------------------------------------------------------------------------------------------------------------+
+| Presents a target client with items they have never borrowed, that members with a similar borrowing history have borrowed |
++---------------------------------------------------------------------------------------------------------------------------+
+| Presents a target client with items they have never borrowed, that members with a similar borrowing history have borrowed |
++---------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
++----------+--------------------------------------+---------------------------+
+| media_id | title                                | weighted_popularity_score |
++----------+--------------------------------------+---------------------------+
+|      240 | Entrepreneurial financial management |                        14 |
+|        9 | Official Congressional Directory     |                        13 |
+|      241 | Laws, etc                            |                        11 |
+|      100 | The Great God Pan                    |                        11 |
+|       79 | The Lost World                       |                        11 |
+|      116 | The Magic World                      |                        11 |
+|      166 | The Red Badge of Courage             |                        10 |
+|      143 | The Canterbury Tales                 |                        10 |
+|      219 | Software Engineering                 |                        10 |
+|      146 | Sonnets                              |                        10 |
++----------+--------------------------------------+---------------------------+
+10 rows in set (0.014 sec)
