@@ -31,4 +31,4 @@ You can also refer to `src/formatted_test_queries_output` to see the complete ou
 #### Thorough Checking
 Refer to `src/test_queries.sql` and perform individual queries by copy and pasting.
 
-##### In either case, please do read over the sql files themselves, as they contain relevant comments
+##### In either case, please do read over the sql files themselves as they contain relevant comments.
