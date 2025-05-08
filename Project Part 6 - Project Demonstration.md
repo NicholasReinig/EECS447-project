@@ -26,7 +26,7 @@ After creating the database:
 Execute `SOURCE </.../path/to/src/formatted_test_queries.sql>`
 This will perform all the queries from the requirements with labels. Queries may be modified or limited to keep the printout readable. But not all desired behavior may be observed due to the limits. For example, a prompt to display all members with outstanding fines may be shortened to only the ten with the largest amount of outstanding fines.
 
-You can also refer to `src/formatted_test_queries_output` to see the complete output of these queries.
+You can also refer to `src/formatted_test_queries_output.txt` to see the complete output of these queries.
 
 #### Thorough Checking
 Refer to `src/test_queries.sql` and perform individual queries by copy and pasting.
